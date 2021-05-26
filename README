@@ -1,0 +1,11 @@
+
+# What is it
+Simple script using jinja2 templates to take a comma separated values file (CSV) and create a JSON.
+
+It's a Python VENV.
+
+# Usage
+python3 main.py <csv file> <jinja2 file> 
+prints output to standard out
+python3 main.py <csv file> <jinja2 file> <output file> 
+prints output to file

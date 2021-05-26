@@ -1,0 +1,18 @@
+{# irbs
+WARNING!!! Items not in this list will be DELETED!!
+switch level: PUT /api/v1/sites/:site_id/devices/:device_id
+- #}
+{
+    "other_ip_configs": {
+{% for csvFileItem in csvFileItems %}
+{% if csvFileItem[2]  %}
+        "{{ csvFileItem[0] }}": {
+            "type": "static",
+            "ip": "{{ csvFileItem[2] }}",
+            "netmask": "{{ csvFileItem[3] }}"
+
+        }{{ ", " if not loop.last }}
+{% endif %}
+{% endfor %}
+    }
+}

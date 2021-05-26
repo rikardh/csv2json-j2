@@ -1,0 +1,14 @@
+{# VLANS
+  site level: POST /api/v1/sites/:site_id/psks
+- #}
+[
+{% for csvFileItem in csvFileItems %}
+    {
+        "name": "void_{{ csvFileItem[5]|jsonify }}",
+        "ssid": "enter SSID here in the psks.j2 file",
+        "passphrase": "{{ csvFileItem[3]|jsonify }}",
+        "usage": "multi"
+    }{{ ", " if not loop.last }}
+{% endfor %}
+]
+

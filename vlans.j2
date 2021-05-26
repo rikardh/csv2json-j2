@@ -1,0 +1,15 @@
+{# VLANS
+WARNING!!! Items not in this list will be DELETED!!
+  site level: PUT /api/v1/sites/:site_id/setting
+   org level: PUT /api/v1/orgs/:org_id/networktemplates/:networktemplate_id
+switch level: PUT /api/v1/sites/:site_id/devices/:device_id
+- #}
+{
+  "networks": {
+{% for csvFileItem in csvFileItems %}
+    "{{ csvFileItem[0] }}": {
+        "vlan_id": {{ csvFileItem[1] }}
+    }{{ ", " if not loop.last }}
+{% endfor %}
+  }
+}
